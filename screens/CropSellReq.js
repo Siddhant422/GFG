@@ -19,7 +19,7 @@ const CropSellReq = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Request for Selling crop!</Text>
+      <Text style={styles.title}>Add Crop for Selling!</Text>
       <TextInput
         style={styles.input}
         placeholder="Crop Name"
