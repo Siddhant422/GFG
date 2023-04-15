@@ -12,7 +12,7 @@ const LoginPage = ({navigation}) => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    navigation.navigate('BottomNavigator');
+    navigation.navigate('SelectProfile');
   };
 
   return (

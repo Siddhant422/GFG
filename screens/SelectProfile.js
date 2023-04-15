@@ -108,7 +108,7 @@ export default function SelectProfile({navigation}) {
           Who are you?
         </Text>
         {genderCard()}
-        <Button mode="contained" style={styles.SubmitBtn}>
+        <Button mode="contained" style={styles.SubmitBtn} onPress={() => navigation.navigate("AddressSc")}>
           Submit
         </Button>
       </ScrollView>

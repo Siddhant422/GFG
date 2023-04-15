@@ -6,6 +6,8 @@ import HomeScreen from './screens/HomeScreen';
 import UserProfile from './screens/UserPage';
 import FrontScreen from './screens/FrontScreen';
 import OtpScreen from './screens/OtpScreen';
+import SelectProfile from './screens/SelectProfile';
+import AddressSc from './screens/AddressSc';
 import AddStoryPage from './screens/AddStoryPage';
 import BottomNavigator from './Component/BottomNavigator';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -30,6 +32,16 @@ export const App = () => {
           <Stack.Screen
             name="OtpScreen"
             component={OtpScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="SelectProfile"
+            component={SelectProfile}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="AddressSc"
+            component={AddressSc}
             options={{headerShown: false}}
           />
           <Stack.Screen

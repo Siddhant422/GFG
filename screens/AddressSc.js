@@ -9,7 +9,7 @@ const SignUpPage = ({navigation}) => {
   // const [password, setPassword] = useState('');
 
   const handleSignUp = () => {
-    navigation.navigate("OtpScreen")
+    navigation.navigate("BottomNavigator")
     // Write your sign-up logic here
   };
 
