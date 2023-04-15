@@ -6,7 +6,10 @@ const LoginPage = ({navigation}) => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    
+    //otp auth
+
+    // then navigate
+    navigation.navigate("HomeScreen")
   };
 
   return (
