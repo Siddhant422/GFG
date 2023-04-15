@@ -15,10 +15,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import CustomItem from './Component/CustomItem';
 import MarketScreen from './screens/MarketScreen';
-
+import CheckoutScreen from './screens/CheckoutScreen';
 export const App = () => {
   return (
     <>
+    {/* <CheckoutScreen></CheckoutScreen> */}
     {/* <MarketScreen></MarketScreen> */}
       <NavigationContainer>
         <Stack.Navigator>

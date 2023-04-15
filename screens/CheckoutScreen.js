@@ -32,7 +32,7 @@ const CheckoutScreen = () => {
         {/* <Provider theme={Theme}> */}
         <View style={styles.cardStyle}>
             <Provider theme={Theme}>
-        <Card >
+        <Card backgroundColor="white">
     {/* <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} /> */}
     <Card.Content>
         <View style={styles.rowStyle} >

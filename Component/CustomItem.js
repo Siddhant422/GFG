@@ -65,12 +65,15 @@ export default CustomItem;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    borderColor: 'red',
-    marginVertical: 20,
+    borderColor: 'black',
+  
+    // marginVertical: 20,
+    borderWidth:0.3,
+    borderBottomColor:'grey',
     padding: 20,
-    borderRadius: 20,
+    borderRadius: 0,
     fontSize: 20,
-    backgroundColor: '#FFF1E4',
+    backgroundColor: 'white',
 
   },
   
