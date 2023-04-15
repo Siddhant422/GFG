@@ -8,6 +8,7 @@ import FrontScreen from './screens/FrontScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import AddStoryPage from './screens/AddStoryPage';
 
 export const App = () => {
   return (

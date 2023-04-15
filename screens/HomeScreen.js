@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import StoryBox from '../Component/StoryBox';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native-gesture-handler';
-import AddStory from '../Component/AddStory';
 import {AnimatedFAB, FAB, Portal, TextInput} from 'react-native-paper';
 
 export default function HomeScreen() {
