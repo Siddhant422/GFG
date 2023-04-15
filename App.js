@@ -15,15 +15,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import CustomItem from './Component/CustomItem';
 import MarketScreen from './screens/MarketScreen';
-import CropSellReq from './screens/CropSellReq';
-import CropStock from './screens/CropStock';
-
+import CheckoutScreen from './screens/CheckoutScreen';
 export const App = () => {
   return (
     <>
-      {/* <MarketScreen></MarketScreen> */}
-      <CropStock></CropStock>
-      {/* <NavigationContainer>
+    {/* <CheckoutScreen></CheckoutScreen> */}
+    {/* <MarketScreen></MarketScreen> */}
+      <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
             name="LoginPage"
@@ -66,7 +64,7 @@ export const App = () => {
             options={{headerShown: false}}
           />
         </Stack.Navigator>
-      </NavigationContainer> */}
+      </NavigationContainer>
     </>
   );
 };
