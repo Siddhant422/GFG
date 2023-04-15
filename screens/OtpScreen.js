@@ -15,7 +15,8 @@ const LoginPage = ({navigation}) => {
   const handleLogin = () => {
     //check otp
     //if correct otp
-    navigation.navigate('SelectProfile', {user: route?.params.user});
+    const routes = navigation.getState()?.routes
+    navigation.replace(routes[routes.length - 2]?.name == "LoginPage" ? "BottomNavigator" : 'SelectProfile' , {user: route?.params.user});
   };
 
   return (
