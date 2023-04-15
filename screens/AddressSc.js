@@ -1,16 +1,63 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import {useRoute} from '@react-navigation/native';
+import React, {useState} from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ToastAndroid,
+} from 'react-native';
 
 const SignUpPage = ({navigation}) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [email2, setEmail2] = useState('');
-  const [name2, setName2] = useState('');
-  // const [password, setPassword] = useState('');
+  const [addLine1, setAddLine1] = useState('');
+  const [addLine2, setAddLine2] = useState('');
+  const [city, setCity] = useState('');
+  const [pincode, setPincode] = useState('');
+  const [state, setState] = useState('');
 
-  const handleSignUp = () => {
-    navigation.navigate("BottomNavigator")
-    // Write your sign-up logic here
+  const route = useRoute();
+
+  const handleNavigation = () => {
+    if (!addLine1) {
+      ToastAndroid.show('Please Enter Address Line 1', ToastAndroid.BOTTOM);
+    } else if (!addLine2) {
+      ToastAndroid.show('Please Enter Address 2', ToastAndroid.BOTTOM);
+    } else if (!city) {
+      ToastAndroid.show('Please Enter City Name', ToastAndroid.BOTTOM);
+    } else if (!pincode) {
+      ToastAndroid.show('Please Enter Pincode', ToastAndroid.BOTTOM);
+    } else if (!state) {
+      ToastAndroid.show('Please Enter State Name', ToastAndroid.BOTTOM);
+    } else {
+      handleSignUp();
+    }
+  };
+  const handleSignUp = async () => {
+    await fetch(process.env.BASE_URL, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...route.params.user,
+        address: {addLine1, addLine2, city, pincode, state},
+      }),
+    })
+      .then(res => {
+        console.log(res, 'posted');
+        navigation.navigate('BottomNavigator', {
+          user: {
+            ...route.params.user,
+            address: {addLine1, addLine2, city, pincode, state},
+          },
+        });
+      })
+      .catch(e => {
+        ToastAndroid.show('Some Error Occured', ToastAndroid.BOTTOM);
+        console.log(e, 'error', e.code);
+      });
   };
 
   return (
@@ -20,17 +67,17 @@ const SignUpPage = ({navigation}) => {
         style={styles.input}
         placeholder="Address Line 1"
         placeholderTextColor="#AAAAAA"
-        onChangeText={(text) => setName(text)}
-        value={name}
+        onChangeText={text => setAddLine1(text)}
+        value={addLine1}
         autoCapitalize="words"
         autoCorrect={false}
       />
-            <TextInput
+      <TextInput
         style={styles.input}
         placeholder="Adress Line 2"
         placeholderTextColor="#AAAAAA"
-        onChangeText={(text) => setName2(text)}
-        value={name2}
+        onChangeText={text => setAddLine2(text)}
+        value={addLine2}
         autoCapitalize="words"
         autoCorrect={false}
       />
@@ -38,48 +85,45 @@ const SignUpPage = ({navigation}) => {
         style={styles.input}
         placeholder="Pin Code"
         placeholderTextColor="#AAAAAA"
-        onChangeText={(text) => setEmail2(text)}
-        value={email2}
+        onChangeText={text => setPincode(text)}
+        value={pincode}
+        maxLength={6}
         keyboardType="numeric"
         autoCapitalize="none"
         autoCorrect={false}
       />
-       <TextInput
+      <TextInput
+        style={styles.input}
+        placeholder="City"
+        placeholderTextColor="#AAAAAA"
+        onChangeText={text => setCity(text)}
+        value={city}
+        autoCapitalize="words"
+        autoCorrect={false}
+      />
+      <TextInput
         style={styles.input}
         placeholder="State"
         placeholderTextColor="#AAAAAA"
-        onChangeText={(text) => setEmail(text)}
-        value={email}
-        keyboardType="email-address"
+        onChangeText={text => setState(text)}
+        value={state}
         autoCapitalize="none"
         autoCorrect={false}
       />
-      {/* <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="#AAAAAA"
-        onChangeText={(text) => setPassword(text)}
-        value={password}
-        secureTextEntry
-        autoCapitalize="none"
-        autoCorrect={false}
-      /> */}
       <View style={styles.rowstyle}>
         <View style={styles.boxstyle}>
-      <TouchableOpacity style={styles.button1} onPress={handleSignUp}>
-        <Text style={styles.buttonTitle1}>Back</Text>
-      </TouchableOpacity></View>
-      <View style={styles.boxstyle}>
-      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
-        <Text style={styles.buttonTitle}>Save</Text>
-      </TouchableOpacity></View>
+          <TouchableOpacity
+            style={styles.button1}
+            onPress={() => navigation.navigate('SelectProfile')}>
+            <Text style={styles.buttonTitle1}>Back</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.boxstyle}>
+          <TouchableOpacity style={styles.button} onPress={handleNavigation}>
+            <Text style={styles.buttonTitle}>Save</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      {/* <View style={styles.footer}>
-        <Text style={styles.footerText}>Already have an account?</Text>
-        <TouchableOpacity onPress={() => {navigation.navigate("LoginPage")}}>
-          <Text style={styles.footerLink}>Log in</Text>
-        </TouchableOpacity>
-      </View> */}
     </View>
   );
 };
@@ -92,7 +136,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 40,
   },
-  button1:{
+  button1: {
     backgroundColor: '#F1FFF9',
     width: '50%',
     height: 48,
@@ -101,7 +145,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 20,
   },
-  buttonTitle1:{
+  buttonTitle1: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#0dbd71',
@@ -113,15 +157,15 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     textAlign: 'center',
   },
-  rowstyle:{
-    flexDirection:'row',
-    padding:20,
-    margine:20,
-    rowGap:20,
+  rowstyle: {
+    flexDirection: 'row',
+    padding: 20,
+    margine: 20,
+    rowGap: 20,
   },
-  boxstyle:{
-    width:'78%',
-    alignItems:'center'
+  boxstyle: {
+    width: '78%',
+    alignItems: 'center',
   },
   input: {
     height: 48,
@@ -133,7 +177,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     width: '100%',
     fontSize: 16,
-    color:'black'
+    color: 'black',
   },
   button: {
     backgroundColor: '#0dbd71',

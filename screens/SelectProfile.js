@@ -7,16 +7,26 @@ import {
   useWindowDimensions,
   StyleSheet,
   TouchableOpacity,
+  ToastAndroid,
 } from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import {Button, Card, Title} from 'react-native-paper';
 import {white} from 'react-native-paper/lib/typescript/src/styles/themes/v2/colors';
+import {useRoute} from '@react-navigation/native';
 
 export default function SelectProfile({navigation}) {
   const {height, width} = useWindowDimensions();
-  const [gender, setGender] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [genderIndex, setGenderIndex] = useState('');
+  const [isBuyer, setIsBuyer] = useState(null);
+  const route = useRoute();
+  const handleSubmission = () => {
+    if (isBuyer != null) {
+      navigation.navigate('AddressSc', {
+        user: {...route.params.user, isBuyer: isBuyer},
+      });
+    } else {
+      ToastAndroid.show('Select Profile', ToastAndroid.BOTTOM);
+    }
+  };
 
   const genderCard = () => {
     return (
@@ -31,12 +41,13 @@ export default function SelectProfile({navigation}) {
           }}>
           <Card
             onPress={() => {
-              setGenderIndex(0);
+              setIsBuyer(1);
             }}
             style={{
               borderRadius: 15,
               width: width * 0.4,
               height: height * 0.27,
+              backgroundColor: isBuyer ? '#ff932b' : 'white',
             }}>
             <View
               style={{
@@ -55,7 +66,7 @@ export default function SelectProfile({navigation}) {
               />
               <Text
                 style={{paddingTop: '10%', fontWeight: '600', fontSize: 16}}>
-                BUYER
+                Buyer
               </Text>
             </View>
           </Card>
@@ -64,9 +75,10 @@ export default function SelectProfile({navigation}) {
               borderRadius: 15,
               width: width * 0.4,
               height: height * 0.27,
+              backgroundColor: isBuyer == 0 ? '#ff932b' : 'white',
             }}
             onPress={() => {
-              setGenderIndex(1);
+              setIsBuyer(0);
             }}>
             <View
               style={{
@@ -85,7 +97,7 @@ export default function SelectProfile({navigation}) {
               />
               <Text
                 style={{paddingTop: '10%', fontWeight: '600', fontSize: 16}}>
-                SELLER
+                Seller
               </Text>
             </View>
           </Card>
@@ -108,7 +120,10 @@ export default function SelectProfile({navigation}) {
           Who are you?
         </Text>
         {genderCard()}
-        <Button mode="contained" style={styles.SubmitBtn} onPress={() => navigation.navigate("AddressSc")}>
+        <Button
+          mode="contained"
+          style={styles.SubmitBtn}
+          onPress={handleSubmission}>
           Submit
         </Button>
       </ScrollView>

@@ -4,10 +4,10 @@ import StoryBox from '../Component/StoryBox';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native-gesture-handler';
 import {AnimatedFAB, FAB, Portal, TextInput} from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 
 export default function HomeScreen() {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
 
   const [extended, setExtended] = useState(true);
 
@@ -17,10 +17,11 @@ export default function HomeScreen() {
 
     setExtended(currentScrollPosition <= 0);
   };
-
+  const route = useRoute();
   const handleClick = () => {
-    navigation.navigate("AddStoryPage")
-  }
+    navigation.navigate('AddStoryPage');
+  };
+  console.log(route?.params)
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView onScroll={onScroll}>
@@ -32,7 +33,7 @@ export default function HomeScreen() {
         <StoryBox></StoryBox>
       </ScrollView>
       <AnimatedFAB
-      color='white'
+        color="white"
         icon={'plus'}
         label={'Tweet'}
         extended={extended}
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   fabStyle: {
-    backgroundColor:'#0dbd71',
+    backgroundColor: '#0dbd71',
     bottom: 16,
     right: 16,
     position: 'absolute',

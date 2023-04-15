@@ -1,3 +1,4 @@
+import { useRoute } from '@react-navigation/native';
 import React, {useState} from 'react';
 import {
   StyleSheet,
@@ -8,11 +9,13 @@ import {
 } from 'react-native';
 
 const LoginPage = ({navigation}) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const route = useRoute()
+  const [otp, setOtp] = useState('');
 
   const handleLogin = () => {
-    navigation.navigate('SelectProfile');
+    //check otp
+    //if correct otp
+    navigation.navigate('SelectProfile', {user: route?.params.user});
   };
 
   return (
@@ -22,9 +25,8 @@ const LoginPage = ({navigation}) => {
         style={styles.input}
         placeholder="Enter OTP"
         placeholderTextColor="#AAAAAA"
-        onChangeText={text => setPassword(text)}
-        value={password}
-        secureTextEntry
+        onChangeText={text => setOtp(text)}
+        value={otp}
         autoCapitalize="none"
         autoCorrect={false}
         keyboardType="numeric"

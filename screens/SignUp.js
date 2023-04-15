@@ -1,13 +1,26 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import React, {useState} from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ToastAndroid,
+} from 'react-native';
+import {tokens} from 'react-native-paper/lib/typescript/src/styles/themes/v3/tokens';
 
 const SignUpPage = ({navigation}) => {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
+  const [phoneNo, setPhoneNo] = useState('');
 
   const handleSignUp = () => {
-    navigation.navigate("OtpScreen")
+    if (!name) {
+      ToastAndroid.show('Please Enter Name', ToastAndroid.BOTTOM);
+    } else if (!phoneNo) {
+      ToastAndroid.show('Please Enter Phone Number', ToastAndroid.BOTTOM);
+    } else {
+      navigation.navigate('OtpScreen', {user: {name, phoneNo}});
+    }
     // Write your sign-up logic here
   };
 
@@ -18,7 +31,7 @@ const SignUpPage = ({navigation}) => {
         style={styles.input}
         placeholder="Name"
         placeholderTextColor="#AAAAAA"
-        onChangeText={(text) => setName(text)}
+        onChangeText={text => setName(text)}
         value={name}
         autoCapitalize="words"
         autoCorrect={false}
@@ -27,28 +40,22 @@ const SignUpPage = ({navigation}) => {
         style={styles.input}
         placeholder="Phone Number"
         placeholderTextColor="#AAAAAA"
-        onChangeText={(text) => setEmail(text)}
-        value={email}
-        keyboardType="email-address"
+        onChangeText={text => setPhoneNo(text)}
+        value={phoneNo}
+        maxLength={10}
+        keyboardType="number-pad"
         autoCapitalize="none"
         autoCorrect={false}
       />
-      {/* <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="#AAAAAA"
-        onChangeText={(text) => setPassword(text)}
-        value={password}
-        secureTextEntry
-        autoCapitalize="none"
-        autoCorrect={false}
-      /> */}
       <TouchableOpacity style={styles.button} onPress={handleSignUp}>
         <Text style={styles.buttonTitle}>Sign up</Text>
       </TouchableOpacity>
       <View style={styles.footer}>
         <Text style={styles.footerText}>Already have an account?</Text>
-        <TouchableOpacity onPress={() => {navigation.navigate("LoginPage")}}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('LoginPage');
+          }}>
           <Text style={styles.footerLink}>Log in</Text>
         </TouchableOpacity>
       </View>

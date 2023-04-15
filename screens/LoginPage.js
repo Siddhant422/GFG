@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 
 const LoginPage = ({navigation}) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [phoneNo, setPhoneNo] = useState('');
 
   const handleLogin = () => {
-    //otp auth
-
-    // then navigate
-    navigation.navigate("OtpScreen")
+    //send otp
+    navigation.navigate('OtpScreen', {user: {phoneNo}});
   };
 
   return (
@@ -17,21 +20,11 @@ const LoginPage = ({navigation}) => {
       <Text style={styles.title}>Welcome to Farmers Community</Text>
       <TextInput
         style={styles.input}
-        placeholder="Email"
+        placeholder="Phone Number"
         placeholderTextColor="#AAAAAA"
-        onChangeText={(text) => setEmail(text)}
-        value={email}
-        keyboardType="email-address"
-        autoCapitalize="none"
-        autoCorrect={false}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="#AAAAAA"
-        onChangeText={(text) => setPassword(text)}
-        value={password}
-        secureTextEntry
+        onChangeText={text => setPhoneNo(text)}
+        maxLength={10}
+        keyboardType="number-pad"
         autoCapitalize="none"
         autoCorrect={false}
       />
@@ -40,7 +33,10 @@ const LoginPage = ({navigation}) => {
       </TouchableOpacity>
       <View style={styles.footer}>
         <Text style={styles.footerText}>Don't have an account?</Text>
-        <TouchableOpacity onPress={() =>{navigation.navigate("SignUp")}}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('SignUp');
+          }}>
           <Text style={styles.footerLink}>Sign up</Text>
         </TouchableOpacity>
       </View>
