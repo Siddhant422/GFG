@@ -1,13 +1,14 @@
 import {View, StyleSheet} from 'react-native';
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {Avatar, Button, Card, Text} from 'react-native-paper';
-
+import {Avatar, Button, Card, Text,Provider} from 'react-native-paper';
+// import Provider from 'react-native-paper';
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
-
+import Theme from '../assests/Theme/theme'
 export default function StoryBox() {
   return (
     <View style={styles.card}>
+      <Provider theme={Theme}>
       <Card
         elevation={0}
         theme={{colors: {outline: 'black'}, roundness: 0}}
@@ -28,9 +29,10 @@ export default function StoryBox() {
         </Card.Content>
         <Card.Actions>
           <Button>Comment</Button>
-          <Button>Like</Button>
+          <Button >Like</Button>
         </Card.Actions>
       </Card>
+      </Provider>
     </View>
   );
 }

@@ -1,12 +1,13 @@
 import * as React from 'react';
 import {TextInput} from 'react-native-gesture-handler';
-import {Avatar, Button, Card, Text, View} from 'react-native-paper';
+import {Avatar, Button, Card, Text, View,Provider} from 'react-native-paper';
 import {BackHandler, ScrollView, StyleSheet} from 'react-native';
-
+import Theme from '../assests/Theme/theme1'
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
 
 export default function MyComponent() {
   return (
+    <Provider theme={Theme}>
     <Card style={styles.container}>
       <Card.Title
         title="Siddhant Keshari"
@@ -26,6 +27,7 @@ export default function MyComponent() {
         <Button>Post</Button>
       </Card.Actions>
     </Card>
+    </Provider>
   );
 }
 
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
   },
   tweetArea: {
     marginBottom: 200,
-    fontWeight: 'bold',
+    fontWeight: 'grey',
     fontSize: 20,
     paddingLeft: 15,
   },

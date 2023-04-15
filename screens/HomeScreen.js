@@ -32,13 +32,14 @@ export default function HomeScreen() {
         <StoryBox></StoryBox>
       </ScrollView>
       <AnimatedFAB
+      color='white'
         icon={'plus'}
         label={'Tweet'}
         extended={extended}
         onPress={handleClick}
         visible={true}
-        animateFrom={'right'}
-        iconMode={'static'}
+        animateFrom={'left'}
+        iconMode={'dynamic'}
         style={[styles.fabStyle]}
       />
     </SafeAreaView>
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   fabStyle: {
+    backgroundColor:'#0dbd71',
     bottom: 16,
     right: 16,
     position: 'absolute',

@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    backgroundColor: '#FFCD61',
+    backgroundColor: '#ff932b',
     width: '100%',
     height: 48,
     borderRadius: 5,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   footerLink: {
-    color: '#FFCD61',
+    color: '#0dbd71',
     marginLeft: 5,
     fontSize: 16,
   },
