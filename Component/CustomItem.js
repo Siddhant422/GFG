@@ -1,0 +1,97 @@
+import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {TouchableRipple, IconButton, MD3Colors, Text} from 'react-native-paper';
+
+const CustomItem = () => {
+  const [Counter, setCounter] = useState(0);
+  const handleOnIncrement = () => {
+    setCounter(Counter + 1);
+  };
+  console.log(Counter);
+  const handleOnDecrement = () => {
+    if (Counter > 0) {
+      setCounter(Counter - 1);
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Image
+        source={require('../assests/Image/crop.jpg')}
+        style={styles.ImagePic}
+      />
+      <View style={styles.ContactDetails}>
+        <View style={{gap: 5, fontSize: 20}}>
+          <Text style={{fontSize: 16, fontWeight: 'bold'}}> Crop: Wheat</Text>
+          <Text style={{fontSize: 16, fontWeight: 'bold'}}>
+            {' '}
+            Name: Siddhant Keshari
+          </Text>
+          <Text style={{fontSize: 16, fontWeight: 'bold'}}>
+            {' '}
+            Phone Number: +91 8922915545
+          </Text>
+          <Text style={{fontSize: 16, fontWeight: 'bold'}}>
+            {' '}
+            Price Per 10KG: ₹400
+          </Text>
+        </View>
+        <View style={styles.btn}>
+          <IconButton
+            icon="minus"
+            iconColor="white"
+            size={20}
+            backgroundColor="#ff932b"
+            onPress={handleOnDecrement}
+          />
+          <Text style={styles.BtnValue}>{Counter}</Text>
+          <IconButton
+            icon="plus"
+            iconColor="white"
+            size={20}
+            backgroundColor="#ff932b"
+            onPress={handleOnIncrement}
+          />
+        </View>
+      </View>
+    </View>
+  );
+};
+
+export default CustomItem;
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    borderColor: 'red',
+    padding: 10,
+    fontSize: 20,
+    backgroundColor: '#FFF1E4',
+  },
+  ImagePic: {
+    width: 140,
+    height: 140,
+    borderRadius: 40,
+    shadowColor: '#202020',
+    shadowOffset: {width: 0, height: 0},
+    shadowRadius: 5,
+  },
+  btn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
+  ContactDetails: {
+    justifyContent: 'center',
+    padding: 10,
+    gap: 5,
+  },
+  increment: {
+    backgroundColor: 'green',
+    width: 50,
+  },
+  BtnValue: {
+    color: 'black',
+    fontSize: 15,
+  },
+});

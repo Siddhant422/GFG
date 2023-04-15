@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   SubmitBtn: {
     alignItems: 'center',
     marginTop: 40,
-    backgroundColor: '#0dbd71',
+    backgroundColor: '#ff932b',
     textAlign: 'center',
     fontColor: 'white',
   },
