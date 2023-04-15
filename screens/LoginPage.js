@@ -9,7 +9,7 @@ const LoginPage = ({navigation}) => {
     //otp auth
 
     // then navigate
-    navigation.navigate("HomeScreen")
+    navigation.navigate("OtpScreen")
   };
 
   return (

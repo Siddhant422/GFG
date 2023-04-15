@@ -4,8 +4,11 @@ import StoryBox from '../Component/StoryBox';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native-gesture-handler';
 import {AnimatedFAB, FAB, Portal, TextInput} from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen() {
+    const navigation = useNavigation();
+
   const [extended, setExtended] = useState(true);
 
   const onScroll = ({nativeEvent}) => {
@@ -14,6 +17,10 @@ export default function HomeScreen() {
 
     setExtended(currentScrollPosition <= 0);
   };
+
+  const handleClick = () => {
+    navigation.navigate("AddStoryPage")
+  }
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView onScroll={onScroll}>
@@ -28,7 +35,7 @@ export default function HomeScreen() {
         icon={'plus'}
         label={'Tweet'}
         extended={extended}
-        onPress={() => console.log('Pressed')}
+        onPress={handleClick}
         visible={true}
         animateFrom={'right'}
         iconMode={'static'}

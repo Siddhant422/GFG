@@ -4,9 +4,10 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-nativ
 const SignUpPage = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // const [password, setPassword] = useState('');
 
   const handleSignUp = () => {
+    navigation.navigate("OtpScreen")
     // Write your sign-up logic here
   };
 
@@ -24,7 +25,7 @@ const SignUpPage = ({navigation}) => {
       />
       <TextInput
         style={styles.input}
-        placeholder="Email"
+        placeholder="Phone Number"
         placeholderTextColor="#AAAAAA"
         onChangeText={(text) => setEmail(text)}
         value={email}
@@ -32,7 +33,7 @@ const SignUpPage = ({navigation}) => {
         autoCapitalize="none"
         autoCorrect={false}
       />
-      <TextInput
+      {/* <TextInput
         style={styles.input}
         placeholder="Password"
         placeholderTextColor="#AAAAAA"
@@ -41,7 +42,7 @@ const SignUpPage = ({navigation}) => {
         secureTextEntry
         autoCapitalize="none"
         autoCorrect={false}
-      />
+      /> */}
       <TouchableOpacity style={styles.button} onPress={handleSignUp}>
         <Text style={styles.buttonTitle}>Sign up</Text>
       </TouchableOpacity>

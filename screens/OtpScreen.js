@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import React, {useState} from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 
 const LoginPage = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    
+    navigation.navigate('BottomNavigator');
   };
 
   return (
@@ -16,20 +22,20 @@ const LoginPage = ({navigation}) => {
         style={styles.input}
         placeholder="Enter OTP"
         placeholderTextColor="#AAAAAA"
-        onChangeText={(text) => setPassword(text)}
+        onChangeText={text => setPassword(text)}
         value={password}
         secureTextEntry
         autoCapitalize="none"
         autoCorrect={false}
-        keyboardType='numeric'
+        keyboardType="numeric"
         maxLength={6}
       />
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonTitle}>verify</Text>
+        <Text style={styles.buttonTitle}>Verify</Text>
       </TouchableOpacity>
       <View style={styles.footer}>
         <Text style={styles.footerText}>Didn't receive the otp?</Text>
-        <TouchableOpacity onPress={() =>{navigation.navigate("SignUp")}}>
+        <TouchableOpacity onPress={() => {}}>
           <Text style={styles.footerLink}>Resend</Text>
         </TouchableOpacity>
       </View>
