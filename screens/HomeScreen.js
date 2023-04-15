@@ -38,7 +38,7 @@ export default function HomeScreen() {
         extended={extended}
         onPress={handleClick}
         visible={true}
-        animateFrom={'left'}
+        animateFrom={'right'}
         iconMode={'dynamic'}
         style={[styles.fabStyle]}
       />

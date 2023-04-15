@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
   tweetArea: {
     marginBottom: 200,
-    fontWeight: 'grey',
+    fontWeight: 'bold',
     fontSize: 20,
     paddingLeft: 15,
   },

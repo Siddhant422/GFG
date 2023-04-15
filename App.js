@@ -14,10 +14,12 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import CustomItem from './Component/CustomItem';
+import MarketScreen from './screens/MarketScreen';
 
 export const App = () => {
   return (
     <>
+    {/* <MarketScreen></MarketScreen> */}
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen

@@ -3,7 +3,9 @@ import {BottomNavigation, Text,Provider} from 'react-native-paper';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {View, Image, StyleSheet} from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
-const marketPlaceRoute = () => <Text>Music</Text>;
+import CustomItem from './CustomItem';
+import MarketScreen from '../screens/MarketScreen';
+const marketPlaceRoute = () => <MarketScreen></MarketScreen>
 const communityRoute = () => <HomeScreen></HomeScreen>
 import Theme from '../assests/Theme/theme'
 export default function BottomNavigator() {
@@ -14,7 +16,6 @@ export default function BottomNavigator() {
       title: 'Community',
       focusedIcon: 'account-group',
       unfocusedIcon: 'account-group-outline',
-      backgroundColor:'white'
     },
     {
     key: 'marketPlace',

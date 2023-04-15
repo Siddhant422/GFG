@@ -15,6 +15,7 @@ const CustomItem = () => {
   };
 
   return (
+    <View style={styles.outerStyle}>
     <View style={styles.container}>
       <Image
         source={require('../assests/Image/crop.jpg')}
@@ -22,16 +23,16 @@ const CustomItem = () => {
       />
       <View style={styles.ContactDetails}>
         <View style={{gap: 5, fontSize: 20}}>
-          <Text style={{fontSize: 16, fontWeight: 'bold'}}> Crop: Wheat</Text>
-          <Text style={{fontSize: 16, fontWeight: 'bold'}}>
+          <Text style={{fontSize: 13, fontWeight: 'bold'}}> Crop: Wheat</Text>
+          <Text style={{fontSize: 13, fontWeight: 'bold'}}>
             {' '}
             Name: Siddhant Keshari
           </Text>
-          <Text style={{fontSize: 16, fontWeight: 'bold'}}>
+          <Text style={{fontSize: 13, fontWeight: 'bold'}}>
             {' '}
             Phone Number: +91 8922915545
           </Text>
-          <Text style={{fontSize: 16, fontWeight: 'bold'}}>
+          <Text style={{fontSize: 13, fontWeight: 'bold'}}>
             {' '}
             Price Per 10KG: ₹400
           </Text>
@@ -40,7 +41,7 @@ const CustomItem = () => {
           <IconButton
             icon="minus"
             iconColor="white"
-            size={20}
+            size={15}
             backgroundColor="#ff932b"
             onPress={handleOnDecrement}
           />
@@ -48,12 +49,13 @@ const CustomItem = () => {
           <IconButton
             icon="plus"
             iconColor="white"
-            size={20}
+            size={15}
             backgroundColor="#ff932b"
             onPress={handleOnIncrement}
           />
         </View>
       </View>
+    </View>
     </View>
   );
 };
@@ -64,13 +66,17 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     borderColor: 'red',
-    padding: 10,
+    marginVertical: 20,
+    padding: 20,
+    borderRadius: 20,
     fontSize: 20,
     backgroundColor: '#FFF1E4',
+
   },
+  
   ImagePic: {
-    width: 140,
-    height: 140,
+    width: 110,
+    height: 110,
     borderRadius: 40,
     shadowColor: '#202020',
     shadowOffset: {width: 0, height: 0},
