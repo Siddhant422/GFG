@@ -5,6 +5,7 @@ import SignUp from './screens/SignUp';
 import HomeScreen from './screens/HomeScreen';
 import UserProfile from './screens/UserPage';
 import FrontScreen from './screens/FrontScreen';
+import OtpScreen from './screens/OtpScreen'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -13,7 +14,8 @@ import AddStoryPage from './screens/AddStoryPage';
 export const App = () => {
   return (
     <>
-      <NavigationContainer>
+    <OtpScreen></OtpScreen>
+      {/* <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
             name="LoginPage"
@@ -31,7 +33,7 @@ export const App = () => {
             options={{headerShown: false}}
           />
         </Stack.Navigator>
-      </NavigationContainer>
+      </NavigationContainer> */}
     </>
   );
 };
