@@ -6,6 +6,7 @@ import HomeScreen from './screens/HomeScreen';
 import UserProfile from './screens/UserPage';
 import FrontScreen from './screens/FrontScreen';
 import OtpScreen from './screens/OtpScreen';
+import AddressSc from '../GFG/screens/AddressSc'
 import AddStoryPage from './screens/AddStoryPage'
 import BottomNavigator from './Component/BottomNavigator';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -15,7 +16,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 export const App = () => {
   return (
     <>
-      <NavigationContainer>
+    <AddressSc></AddressSc>
+      {/* <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
             name="LoginPage"
@@ -48,7 +50,7 @@ export const App = () => {
             options={{headerShown: false}}
           />
         </Stack.Navigator>
-      </NavigationContainer>
+      </NavigationContainer> */}
     </>
   );
 };
