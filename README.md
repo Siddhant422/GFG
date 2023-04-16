@@ -20,6 +20,7 @@ cd into the new folder and type
 $ npm install
 
 //This installs the required dependencies
+![farmers](https://user-images.githubusercontent.com/96906907/232318560-5141958b-756d-4316-bfdb-3b5f350f2a88.png)
 
 //To run the React project.
 $ npm start
