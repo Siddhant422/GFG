@@ -1,13 +1,16 @@
 import * as React from 'react';
 import {DataTable, Button} from 'react-native-paper';
-import {Text} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {useNavigation} from '@react-navigation/native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const optionsPerPage = [2, 3, 4];
 
 const MyComponent = () => {
   const [page, setPage] = React.useState(0);
   const [itemsPerPage, setItemsPerPage] = React.useState(optionsPerPage[0]);
+  const navigation = useNavigation();
 
   React.useEffect(() => {
     setPage(0);
@@ -44,16 +47,31 @@ const MyComponent = () => {
           optionsLabel={'Rows per page'}
         />
       </DataTable>
-
-      <Button
-        icon="camera"
-        mode="contained"
-        onPress={() => console.log('Pressed')}
-        style={{marginBottom: 20}}>
-        Add your Crop
-      </Button>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          navigation.navigate('CropSellReq');
+        }}>
+        <Text style={styles.buttonTitle}>Submit</Text>
+      </TouchableOpacity>
     </>
   );
 };
 
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: '#0dbd71',
+    width: '100%',
+    height: 48,
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+  },
+  buttonTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+  },
+});
 export default MyComponent;

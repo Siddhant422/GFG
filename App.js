@@ -9,6 +9,8 @@ import OtpScreen from './screens/OtpScreen';
 import SelectProfile from './screens/SelectProfile';
 import AddressSc from './screens/AddressSc';
 import AddStoryPage from './screens/AddStoryPage';
+import CropStock from './screens/CropStock';
+import CropSellReq from './screens/CropSellReq'
 import BottomNavigator from './Component/BottomNavigator';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
@@ -19,8 +21,8 @@ import CheckoutScreen from './screens/CheckoutScreen';
 export const App = () => {
   return (
     <>
-    {/* <CheckoutScreen></CheckoutScreen> */}
-    {/* <MarketScreen></MarketScreen> */}
+      {/* <CheckoutScreen></CheckoutScreen> */}
+      {/* <MarketScreen></MarketScreen> */}
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
@@ -56,6 +58,16 @@ export const App = () => {
           <Stack.Screen
             name="AddStoryPage"
             component={AddStoryPage}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="CropStock"
+            component={CropStock}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="CropSellReq"
+            component={CropSellReq}
             options={{headerShown: false}}
           />
           <Stack.Screen

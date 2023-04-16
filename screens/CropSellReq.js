@@ -10,10 +10,9 @@ import {
 const CropSellReq = ({navigation}) => {
   const [Cropname, setCropName] = useState('');
   const [weight, setWeight] = useState('');
-  // const [password, setPassword] = useState('');
 
-  const handleSignUp = () => {
-    navigation.navigate('OtpScreen');
+  const handleSubmission = () => {
+    navigation.navigate('CropStock');
     // Write your sign-up logic here
   };
 
@@ -39,7 +38,7 @@ const CropSellReq = ({navigation}) => {
         autoCapitalize="none"
         autoCorrect={false}
       />
-      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+      <TouchableOpacity style={styles.button} onPress={handleSubmission}>
         <Text style={styles.buttonTitle}>Submit</Text>
       </TouchableOpacity>
     </View>

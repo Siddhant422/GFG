@@ -4,6 +4,8 @@ import {useNavigation} from '@react-navigation/native';
 import {Avatar} from 'react-native-paper';
 
 const UserProfile = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View>
@@ -25,14 +27,11 @@ const UserProfile = () => {
           </Text>
         </View>
       </View>
-      <View style={{flexDirection: 'row', gap: 15, marginTop: 20}}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Selling History</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Buying History</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('CropStock')}>
+        <Text style={styles.buttonText}>Buyer/Seller</Text>
+      </TouchableOpacity>
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Logout</Text>
       </TouchableOpacity>

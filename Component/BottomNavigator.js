@@ -6,9 +6,11 @@ import HomeScreen from '../screens/HomeScreen';
 import CustomItem from './CustomItem';
 import MarketScreen from '../screens/MarketScreen';
 import UserProfile from '../screens/UserPage';
+import CheckoutScreen from '../screens/CheckoutScreen';
 const marketPlaceRoute = () => <MarketScreen></MarketScreen>;
 const communityRoute = () => <HomeScreen></HomeScreen>;
 const userprofile = () => <UserProfile></UserProfile>;
+const checkoutPage = () => <CheckoutScreen></CheckoutScreen>
 import Theme from '../assests/Theme/theme';
 export default function BottomNavigator() {
   const [index, setIndex] = React.useState(0);
@@ -22,14 +24,20 @@ export default function BottomNavigator() {
     {
       key: 'marketPlace',
       title: 'MarketPlace',
+      focusedIcon: 'shopping',
+      unfocusedIcon: 'shopping-outline',
+    },
+    {
+      key: 'checkoutPage',
+      title: 'Cart',
       focusedIcon: 'cart',
       unfocusedIcon: 'cart-outline',
     },
     {
       key: 'UserPage',
       title: 'User Profile',
-      focusedIcon: 'cart',
-      unfocusedIcon: 'cart-outline',
+      focusedIcon: 'account',
+      unfocusedIcon: 'account-outline',
     },
   ]);
 
@@ -37,6 +45,7 @@ export default function BottomNavigator() {
     marketPlace: marketPlaceRoute,
     community: communityRoute,
     UserPage: userprofile,
+    checkoutPage: checkoutPage
   });
 
   return (
