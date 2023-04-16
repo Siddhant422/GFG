@@ -42,7 +42,7 @@ const CustomItem = () => {
             icon="minus"
             iconColor="white"
             size={15}
-            backgroundColor="#ff932b"
+            backgroundColor="#0dbd71"
             onPress={handleOnDecrement}
           />
           <Text style={styles.BtnValue}>{Counter}</Text>
@@ -50,7 +50,7 @@ const CustomItem = () => {
             icon="plus"
             iconColor="white"
             size={15}
-            backgroundColor="#ff932b"
+            backgroundColor="#0dbd71"
             onPress={handleOnIncrement}
           />
         </View>
@@ -65,13 +65,13 @@ export default CustomItem;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    borderColor: 'black',
+    borderColor: 'white',
   
-    // marginVertical: 20,
+    marginVertical: 1,
     borderWidth:0.3,
-    borderBottomColor:'grey',
+    borderBottomColor:'white',
     padding: 20,
-    borderRadius: 0,
+    borderRadius: 10,
     fontSize: 20,
     backgroundColor: 'white',
 
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   ImagePic: {
     width: 110,
     height: 110,
-    borderRadius: 40,
+    borderRadius: 24,
     shadowColor: '#202020',
     shadowOffset: {width: 0, height: 0},
     shadowRadius: 5,

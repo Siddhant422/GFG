@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState,Image} from 'react';
+import {Avatar} from 'react-native-paper';
 import {
   StyleSheet,
   View,
@@ -14,7 +15,7 @@ const LoginPage = ({navigation}) => {
     //send otp
     navigation.navigate('OtpScreen', {user: {phoneNo}});
   };
-
+  
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Farmers Community</Text>
@@ -70,6 +71,14 @@ const styles = StyleSheet.create({
     width: '100%',
     fontSize: 16,
   },
+  ImagePic: {
+    width: 110,
+    height: 110,
+    borderRadius: 24,
+    shadowColor: '#202020',
+    shadowOffset: {width: 0, height: 0},
+    shadowRadius: 5,
+  },
   button: {
     backgroundColor: '#0dbd71',
     width: '100%',
@@ -93,7 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   footerLink: {
-    color: '#ff932b',
+    color: '#0dbd71',
     marginLeft: 5,
     fontSize: 16,
   },

@@ -19,7 +19,7 @@ const UserProfile = () => {
           }}
         />
         <Text style={styles.heading}>User Profile Details</Text>
-        <View style={{gap: 10}}>
+        <View style={{gap: 10,marginVertical:40}}>
           <Text style={styles.TextArea}>Name: Siddhant Keshari</Text>
           <Text style={styles.TextArea}>Phone Number: +91 8922915545</Text>
           <Text style={styles.TextArea}>
@@ -47,8 +47,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   heading: {
+    color:'black',
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '400',
     marginBottom: 20,
     textAlign: 'center',
     marginTop: 20,
@@ -70,10 +71,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   button: {
-    backgroundColor: '#ff932b',
+    backgroundColor: '#0dbd71',
     padding: 10,
     borderRadius: 5,
     marginTop: 20,
+    width:'70%',
+    marginTop:20,
   },
   buttonText: {
     color: '#fff',
@@ -84,7 +87,7 @@ const styles = StyleSheet.create({
   TextArea: {
     fontSize: 17,
     color: 'black',
-    fontWeight: 'bold',
+    fontWeight: '400',
   },
 });
 

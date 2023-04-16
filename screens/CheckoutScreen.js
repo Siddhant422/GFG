@@ -11,16 +11,10 @@ import {
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import MarketComponent from '../Component/CustomItem';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
-import Theme from '../assests/Theme/theme1';
+import Theme from '../assests/Theme/theme';
 const CheckoutScreen = () => {
   const _goBack = () => console.log('Went back');
   const _checkOut = () => console.log('checkout');
-  const onScroll = ({nativeEvent}) => {
-    const currentScrollPosition =
-      Math.floor(nativeEvent?.contentOffset?.y) ?? 0;
-
-    setExtended(currentScrollPosition <= 0);
-  };
   return (
     <SafeAreaProvider style={styles.container}>
       <Appbar.Header>
@@ -30,7 +24,7 @@ const CheckoutScreen = () => {
       <Appbar.Action icon="dots-vertical" onPress={_handleMore} /> */}
       </Appbar.Header>
       <View>
-        <ScrollView>
+        <ScrollView backgroundColor='#EFFFF8'>
           <MarketComponent></MarketComponent>
           <MarketComponent></MarketComponent>
           <MarketComponent></MarketComponent>
@@ -42,7 +36,7 @@ const CheckoutScreen = () => {
           <Provider theme={Theme}>
             <Card backgroundColor="white">
               {/* <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} /> */}
-              <Card.Content>
+              <Card.Content backgroundColor='#EFFFF8'>
                 <View style={styles.rowStyle}>
                   <View>
                     <Title>Total Items:</Title>
@@ -50,13 +44,13 @@ const CheckoutScreen = () => {
                   </View>
                   <View>
                     <Title>Total Amount:</Title>
-                    <Paragraph>₹800</Paragraph>
+                    <Paragraph>₹500</Paragraph>
                   </View>
                 </View>
               </Card.Content>
               {/* <Card.Cover source={{ uri: 'https://picsum.photos/700' }} /> */}
-              <Card.Actions>
-                <Button mode="contained" color={'#ff932b'} onPress={_checkOut}>
+              <Card.Actions backgroundColor="#EFFFF8">
+                <Button onPress={_checkOut}>
                   Proceed to Checkout
                 </Button>
               </Card.Actions>

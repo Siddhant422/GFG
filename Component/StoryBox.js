@@ -1,7 +1,7 @@
 import {View, StyleSheet} from 'react-native';
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {Avatar, Button, Card, Text,Provider} from 'react-native-paper';
+import {Avatar, Button, Card, Text,Provider, TextInput} from 'react-native-paper';
 // import Provider from 'react-native-paper';
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
 import Theme from '../assests/Theme/theme'
@@ -28,7 +28,9 @@ export default function StoryBox() {
           </Text>
         </Card.Content>
         <Card.Actions>
-          <Button>Comment</Button>
+          <TextInput    placeholder="Write a comment..."
+          autoFocus={true} style={styles.textStyle}>
+          </TextInput>
           <Button >Like</Button>
         </Card.Actions>
       </Card>
@@ -40,4 +42,8 @@ const styles = StyleSheet.create({
   card: {
     padding: '1.5%',
   },
+  textStyle:{
+    marginBottom:0,
+    width:'75%',
+  }
 });
